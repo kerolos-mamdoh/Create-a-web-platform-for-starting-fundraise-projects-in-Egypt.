@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form method="post" action="{% url 'profile' %}">
+    {% csrf_token %}
+    <input type="submit" value="profile">
+</form>
+<div class="container">
+  <h2>Stacked form</h2>
+  <form action="{% url 'addproject_database' %}" method="post">
+      <div>{{ user.id }}</div>
+      {% csrf_token %}
+    <div class="form-group">
+      <label for="email">Tittle:</label>
+      <input type="text" class="form-control" id="email" placeholder="Enter tittle" name="tit">
+    </div>
+    <div class="form-group">
+      <label for="pwd">details:</label>
+      <input type="text" class="form-control" id="pwd" placeholder="Enter text" name="det">
+    </div>
+      <div class="form-group">
+      <label for="pwd">total target:</label>
+      <input type="number" class="form-control" id="pwd" placeholder="Enter text" name="target">
+    </div>
+      <div class="form-group">
+      <label for="pwd">startdate:</label>
+      <input type="datetime-local" class="form-control" id="pwd" placeholder="Enter text" name="sdate">
+    </div>
+      <div class="form-group">
+      <label for="pwd">end date:</label>
+      <input type="datetime-local" class="form-control" id="pwd" placeholder="Enter text" name="enddate">
+    </div>
+      <div class="form-group">
+      <label for="pwd">uploadimg:</label>
+      <input type="file" class="form-control" id="pwd" placeholder="Enter text" name="img">
+    </div>
+     <label for="cars">Choose a car:</label>
+  <select name="cat" id="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+</body>
+</html>
