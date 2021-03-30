@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +9,49 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+<style>
+            body
+        {
+            background-image: url("http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            font-family: 'Numans', sans-serif;
+        }
+        .container
+        {
+            height: 100%;
+            align-content: center;
+        }
+        input:focus {
+            outline: 0 0 0 0 !important;
+            box-shadow: 0 0 0 0 !important;
+
+        }
+        #f{
+            color: white;
+            width: 25%;
+            height:500px;
+            background-color: black;
+            opacity: 0.8;
+
+        }
+        input
+        {
+            color: black;
+        }
+</style>
 <body>
 
-<div class="container">
-  <h2>Vertical (basic) form</h2>
- <form action="" method="post">
+<div id="f" class="container-fluid text-center "style= margin-top:120px>
+  <h2>register </h2>
+ <form action="" method="post" class="form-group  my-auto">
+     <div class="form-group" >
       {% csrf_token %}
       {{ form.as_p }}
-      <input type="submit">
+      <button type="submit" class="btn btn-primary">register </button>
+     </div>
+
   </form>
 </div>
 

@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -11,14 +12,14 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+{% block content %}
 <div class="container">
   <h2>Basic Table</h2>
   <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>
   <table class="table">
     <thead>
       <tr>
-        <th>name</th>
+        <th>namesss</th>
         <th>amount</th>
       </tr>
     </thead>
@@ -37,6 +38,6 @@
 </div>
   <button><a href="{% url 'remove_projects' id total%}">remove</a></button>
 </div>
-
+{% endblock %}
 </body>
 </html>

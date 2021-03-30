@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .import settings
+from django.conf.urls.static import static
 from fapp.views import addproject_form,addproject_database,addproject_table,home_view,\
-    loginAuth,registerAuth,profile_user,comment,add_comment,donate_form,add_donnate,donateprojects,remove_projects
+    loginAuth,registerAuth,profile_user,comment,add_comment,donate_form,add_donnate,donateprojects,\
+    remove_projects,edit_form,editprofileuser,search,deleteprofile,searchtags,register_form,adminproject
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('addproject_form/',addproject_form,name='project_form'),
@@ -35,4 +38,15 @@ path('donnate_form/<int:id>', donate_form, name="donnate_form"),
 path('add_donnate/<int:id>', add_donnate, name="add_donnate"),
 path('donnate_projects/<int:id>', donateprojects, name="donnate_projects"),
 path('delete_projects/<int:id>/<int:totaldonnates>', remove_projects, name="remove_projects"),
+path('edit_form/', edit_form, name="edit_form"),
+path('edit_profile/<int:id>', editprofileuser, name="edit_profile"),
+#path('edit_profile/', editprofileuser, name="editprofile"),
+path('search', search, name="search"),
+path('searchtag', searchtags, name="searchtags"),
+path('deleteprofile/', deleteprofile, name="delete_profile"),
+path('regform', register_form, name="regform"),
+path('adminproject/<int:id>', adminproject, name="adminproject"),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
